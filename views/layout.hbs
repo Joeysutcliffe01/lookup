@@ -1,0 +1,52 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{{appTitle}}</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+
+  <body>
+
+    <nav class="navbar">
+
+      <div class="navbar-container container">
+        <input type="checkbox" name="" id="" />
+
+        <a href="/">
+          <h1 class="logo">Look<span class="logo-span">up</span></h1>
+        </a>
+
+        <div class="hamburger-lines">
+          <span class="line line1"></span>
+          <span class="line line2"></span>
+          <span class="line line3"></span>
+        </div>
+
+        <ul class="menu-items">
+
+          {{!-- {{#if user}} --}}
+          <li><a href="/tvshows">Tv</a></li>
+          <li><a href="/movies">Movies</a></li>
+          <li><a href="/Profile">Profile</a></li>
+          {{!-- {{/if}} --}}
+
+          <li><a href="/signup">signup</a></li>
+          <li><a href="/Login">Login</a></li>
+
+        </ul>
+
+      </div>
+
+    </nav>
+
+    <main class="main-body">
+      {{{body}}}
+    </main>
+
+    <script src="/js/script.js"></script>
+  </body>
+
+</html>

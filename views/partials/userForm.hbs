@@ -1,0 +1,12 @@
+<form action="{{route}}" method="post">
+
+  <input name="email" type="email" placeholder="Email" />
+
+  {{#if signup}}
+    <input name="username" type="text" placeholder="Username" />
+  {{/if}}
+
+  <input name="password" type="password" placeholder="Password" />
+  <button type="submit">Submit</button>
+
+</form>

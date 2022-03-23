@@ -1,0 +1,35 @@
+<main class="profile-main">
+
+  <h1>Hey, {{user.username}}</h1>
+
+  <section class="profile-personal-info">
+
+    <img
+      class="profile-img"
+      src="/images/profile-icon-png-899.png"
+      alt="Profile Photo"
+    />
+
+    <div class="about-me">
+      <h1>About me</h1>
+      <input
+        class="about-me-input"
+        type="text"
+        placeholder="Tell us a bit about yourself"
+      />
+    </div>
+
+  </section>
+
+  <form action="/logout" method="post">
+
+    <button
+      class="logout-btn"
+      type="submit"
+      action="/logout"
+      method="post"
+    >Logout</button>
+
+  </form>
+
+</main>
