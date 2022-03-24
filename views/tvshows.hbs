@@ -2,7 +2,7 @@
 
   <h1>Popular Shows</h1>
   <div class="shows-container-outer">
-    {{#each tvshows}}
+    {{#each tvgroup.popularTv}}
 
       <div class="shows-container-inner">
         <a href="/details/{{this.id}}"><img
@@ -22,7 +22,7 @@
 <section class="sliders">
 
   <div class="lg-container">
-    {{#each tvshows}}
+    {{#each tvgroup.topRatedTv}}
 
       <div class="shows-container-inner">
         <a href="/details/{{this.id}}"><img
@@ -40,9 +40,9 @@
 
 <section class="sliders">
 
-  <h1>New Shows</h1>
+  <h1>Trending</h1>
   <div class="shows-container-outer">
-    {{#each tvshows}}
+    {{#each tvgroup.trendingTv}}
 
       <div class="shows-container-inner">
         <a href="/details/{{this.id}}"><img

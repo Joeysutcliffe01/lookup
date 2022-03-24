@@ -5,6 +5,10 @@ const axios = require("axios");
 
 const API_KEY = "api_key=e0fad87e668f0db69d0dd676c05d8fc1";
 const BASE_URL = "https://api.themoviedb.org/3";
+const BASE_URL2 = "https://api.themoviedb.org/3";
+
+const GENRES_BASE = "https://api.themoviedb.org/3/genre/movie/list?";
+
 const API_URL = BASE_URL + "/discover/tv?sort_by=popularity.desc&" + API_KEY;
 
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
@@ -14,17 +18,24 @@ router.get("/tvshows", async (req, res, next) => {
   const urlPopularTv = await axios.get(
     BASE_URL + "/discover/tv?sort_by=popularity.desc&" + API_KEY
   );
-  const urlPopularMovie = await axios.get(
-    BASE_URL + "/discover/tv?sort_by=popularity.desc&" + API_KEY
+  const urlTopRated = await axios.get(BASE_URL + "/tv/top_rated?" + API_KEY);
+  const urlTrending = await axios.get(
+    BASE_URL + "/trending/tv/week?" + API_KEY
   );
 
-  const tvshows = urlPopularTv.data.results;
-  const popularMovies = urlPopularMovie.data.results;
+  const popularTv = urlPopularTv.data.results;
+  const topRated = urlTopRated.data.results;
+  const trending = urlTrending.data.results;
 
-  res.render("tvshows", {
-    tvshows,
-    popularMovies,
-  });
+  const tvgroup = {
+    popularTv: popularTv,
+    topRatedTv: topRated,
+    trendingTv: trending,
+  };
+
+  console.log(tvgroup.trendingTv);
+
+  res.render("tvshows", { tvgroup });
 });
 
 // router.get("/details/:id", async (req, res, next) => {

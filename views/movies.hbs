@@ -2,7 +2,7 @@
 
   <h1>Popular Movies</h1>
   <div class="shows-container-outer">
-    {{#each movies}}
+    {{#each moviesGroup.popular}}
 
       <div class="shows-container-inner">
         <a href="/details/{{this.id}}"><img
@@ -21,7 +21,7 @@
 <section class="sliders">
 
   <div class="lg-container">
-    {{#each movies}}
+    {{#each moviesGroup.topRated}}
 
       <div class="shows-container-inner">
         <a href="/details/{{this.id}}"><img
@@ -39,9 +39,9 @@
 
 <section class="sliders">
 
-  <h1>New Movies</h1>
+  <h1>Trending</h1>
   <div class="shows-container-outer">
-    {{#each movies}}
+    {{#each moviesGroup.kids}}
 
       <div class="shows-container-inner">
         <a href="/details/{{this.id}}"><img

@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const User = require("../models/User.model");
 const bcrypt = require("bcrypt");
+const MovieCollection = require("../models/movieCollection.model");
 const { requireToBeLoggedOut } = require("../middlewares/route-guard");
 
 router.get("/signup", (req, res) => {
@@ -14,7 +15,6 @@ router.post("/signup", async (req, res) => {
       email: req.body.email,
     });
     if (userExists) {
-      console.log(userExists, "here the user");
       res.render("signup", { error: "Hey email already exists" });
       return;
     }
@@ -25,6 +25,15 @@ router.post("/signup", async (req, res) => {
       username: req.body.username,
       password: hash,
     });
+    //----------------------------------------------------moviecollection
+
+    req.session.user = user;
+
+    await MovieCollection.create({
+      owner: user.username,
+      moviesCol: [],
+    });
+
     await newUser.save();
     res.redirect("/login");
   } catch (err) {
@@ -39,7 +48,7 @@ router.get("/login", (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
-    console.log(req.body, "login start")
+    console.log(req.body, "login start");
     const user = await User.findOne({ email: req.body.email });
     console.log(user);
     const hashFromDb = user.password;
@@ -51,7 +60,7 @@ router.post("/login", async (req, res) => {
     req.session.currentUser = user;
     res.redirect("/profile");
   } catch (err) {
-      console.log(err, "here error")
+    console.log(err, "here error");
     res.render("login", { error: "Wrong username or password" });
   }
 });

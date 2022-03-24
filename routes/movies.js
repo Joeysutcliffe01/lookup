@@ -11,16 +11,31 @@ const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
 //router.use(requireLogin)
 router.get("/movies", async (req, res, next) => {
-  try {
-    const topMovieRated = await axios.get(API_URL);
-    const movies = topMovieRated.data.results;
+  const urlPopularMovies = await axios.get(
+    BASE_URL + "/discover/movie?sort_by=popularity.desc&" + API_KEY
+  );
+  const urlTopRatedMovies = await axios.get(
+    BASE_URL +
+      "/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2022-01-24&" +
+      API_KEY
+  );
+  const urlKidsMovies = await axios.get(
+    BASE_URL +
+      "/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&" +
+      API_KEY
+  );
 
-    console.log(topMovieRated.data.results, "topmovies");
-    res.render("movies", { movies });
-  } catch (err) {
-    console.log("err", err);
-    res.render("movies");
-  }
+  const popularMovies = urlPopularMovies.data.results;
+  const topRatedMovies = urlTopRatedMovies.data.results;
+  const kidsMovies = urlKidsMovies.data.results;
+
+  const moviesGroup = {
+    popular: popularMovies,
+    topRated: topRatedMovies,
+    kids: kidsMovies,
+  };
+
+  res.render("movies", { moviesGroup });
 });
 
 router.get("/details/:id", async (req, res, next) => {
@@ -29,22 +44,5 @@ router.get("/details/:id", async (req, res, next) => {
 
   res.render("details");
 });
-//----------------------------------WORKS
-
-// router.get("/shows", async (req, res, next) => {
-//   try {
-//     const topMovieRated = await axios.get(API_URL);
-
-//     console.log("this is the data", topMovieRated.data.);
-
-//     res.render("shows");
-//   } catch (err) {
-//     console.log("err", err);
-//     console.log("this is the data", topMovieRated.data);
-//     res.render("shows");
-//   }
-// });
-
-//----------------------------------WORKS
 
 module.exports = router;

@@ -1,3 +1,7 @@
+const async = require("hbs/lib/async");
+
+const logoutButton = document.getElementById("logout-btn");
+
 document.addEventListener(
   "DOMContentLoaded",
   () => {
@@ -5,3 +9,8 @@ document.addEventListener(
   },
   false
 );
+
+logoutButton.addEventListener("click", async () => {
+  console.log("logout");
+  await fetch("auth/logout");
+});

@@ -23,9 +23,6 @@ router.get("/", async (req, res, next) => {
     tv: tvshows,
   };
 
-  console.log("Moviesandtv", moviesAndTv);
-  // console.log("tv", tvshows);
-
   res.render("index", { moviesAndTv });
 });
 

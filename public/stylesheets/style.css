@@ -29,6 +29,10 @@ a {
   text-decoration: none;
 }
 
+.h1-links {
+  color: var(--text-dark);
+}
+
 .auth-form-section {
   display: flex;
   justify-content: center;
@@ -364,6 +368,21 @@ a {
   background-color: var(--primary);
 }
 
+.overview {
+  background: var(--bg);
+  padding: 2rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  max-height: 100%;
+  transform: translateY(101%);
+}
+
+.movie:hover .overview {
+  transform: translateY(0);
+}
+
 @media (max-width: 800px) {
   .navbar {
     opacity: 0.95;
@@ -478,5 +497,20 @@ a {
 @media (max-width: 500px) {
   .navbar-container input[type="checkbox"]:checked ~ {
     display: none;
+  }
+
+  .hero-index {
+    position: absolute;
+    bottom: 35%;
+    left: 2rem;
+  }
+
+  .hero-index h1 {
+    font-size: 4em;
+  }
+
+  .hero-index p {
+    font-size: 2em;
+    margin-top: -1rem;
   }
 }

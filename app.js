@@ -32,20 +32,21 @@ app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
 const index = require("./routes/index.routes");
 app.use("/", index);
 
-const shows = require("./routes/shows");
-app.use(shows);
-
 const movies = require("./routes/movies");
 app.use(movies);
 
 const tvshows = require("./routes/tvshows");
 app.use(tvshows);
 
+const search = require("./routes/search");
+app.use(search);
+
 // app.use(require("./routes/shows"));
 
 app.use(require("./routes/auth.routes"));
 const loggedinRoutesRouter = require("./routes/loggedin.routes");
 app.use(loggedinRoutesRouter);
+app.use("/profile/collection", require("./routes/movieCollection.routes"));
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
