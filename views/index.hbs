@@ -10,9 +10,9 @@
 
 <section class="sliders">
 
-  <h1>In Theaters</h1>
+  <h1>Popular Movies</h1>
   <div class="shows-container-outer">
-    {{#each tvshows}}
+    {{#each moviesAndTv.movies}}
 
       <div class="shows-container-inner">
         <a href="/details/{{this.id}}"><img
@@ -21,29 +21,7 @@
             alt="image show {{title}}"
           /></a>
         <span>{{vote_average}}</span>
-        <h3>{{this.name}}</h3>
-        <P>{{this.first_air_date}}</P>
-      </div>
-    {{/each}}
-  </div>
-
-</section>
-
-<section class="sliders">
-
-  <h1>Popular Tv Shows</h1>
-  <div class="shows-container-outer">
-    {{#each tvshows}}
-
-      <div class="shows-container-inner">
-        <a href="/details/{{this.id}}"><img
-            class="imgs"
-            src="https://image.tmdb.org/t/p/w500{{this.poster_path}}"
-            alt="image show {{title}}"
-          /></a>
-        <span>{{vote_average}}</span>
-        <h3>{{this.name}}</h3>
-        <P>{{this.first_air_date}}</P>
+        <h3>{{this.title}}</h3>
       </div>
     {{/each}}
   </div>
@@ -54,7 +32,7 @@
 
   <h1>Popular Movies</h1>
   <div class="shows-container-outer">
-    {{#each tvshows}}
+    {{#each moviesAndTv.tv}}
 
       <div class="shows-container-inner">
         <a href="/details/{{this.id}}"><img
@@ -64,28 +42,6 @@
           /></a>
         <span>{{vote_average}}</span>
         <h3>{{this.name}}</h3>
-        <P>{{this.first_air_date}}</P>
-      </div>
-    {{/each}}
-  </div>
-
-</section>
-
-<section class="sliders">
-
-  <h1>Popular Shows</h1>
-  <div class="shows-container-outer">
-    {{#each tvshows}}
-
-      <div class="shows-container-inner">
-        <a href="/details/{{this.id}}"><img
-            class="imgs"
-            src="https://image.tmdb.org/t/p/w500{{this.poster_path}}"
-            alt="image show {{title}}"
-          /></a>
-        <span>{{vote_average}}</span>
-        <h3>{{this.name}}</h3>
-        <P>{{this.first_air_date}}</P>
       </div>
     {{/each}}
   </div>

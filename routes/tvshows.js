@@ -11,16 +11,20 @@ const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
 //router.use(requireLogin)
 router.get("/tvshows", async (req, res, next) => {
-  try {
-    const topMovieRated = await axios.get(API_URL);
-    const tvshows = topMovieRated.data.results;
+  const urlPopularTv = await axios.get(
+    BASE_URL + "/discover/tv?sort_by=popularity.desc&" + API_KEY
+  );
+  const urlPopularMovie = await axios.get(
+    BASE_URL + "/discover/tv?sort_by=popularity.desc&" + API_KEY
+  );
 
-    console.log(topMovieRated.data.results, "toptvshows");
-    res.render("tvshows", { tvshows });
-  } catch (err) {
-    console.log("err", err);
-    res.render("tvshows");
-  }
+  const tvshows = urlPopularTv.data.results;
+  const popularMovies = urlPopularMovie.data.results;
+
+  res.render("tvshows", {
+    tvshows,
+    popularMovies,
+  });
 });
 
 // router.get("/details/:id", async (req, res, next) => {

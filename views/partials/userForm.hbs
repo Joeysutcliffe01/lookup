@@ -1,12 +1,35 @@
-<form action="{{route}}" method="post">
-
-  <input name="email" type="email" placeholder="Email" />
-
+<section class="auth-form-section">
   {{#if signup}}
-    <input name="username" type="text" placeholder="Username" />
+    <div class="signup-form">
+      <img src="images/profile-icon-png-899.png" alt="" />
+      <h1>Lets make an account</h1>
+    </div>
   {{/if}}
+  <form class="auth-form" action="{{route}}" method="post">
 
-  <input name="password" type="password" placeholder="Password" />
-  <button type="submit">Submit</button>
+    <input
+      class="auth-form-input"
+      name="email"
+      type="email"
+      placeholder="Email"
+    />
 
-</form>
+    {{#if signup}}
+      <input
+        class="auth-form-input"
+        name="username"
+        type="text"
+        placeholder="Username"
+      />
+    {{/if}}
+
+    <input
+      class="auth-form-input"
+      name="password"
+      type="password"
+      placeholder="Password"
+    />
+    <button type="submit">Submit</button>
+
+  </form>
+</section>
