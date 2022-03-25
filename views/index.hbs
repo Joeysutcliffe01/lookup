@@ -15,7 +15,7 @@
     {{#each moviesAndTv.movies}}
 
       <div class="shows-container-inner">
-        <a href="/details/{{this.id}}"><img
+        <a href="/details/{{this.media_type}}/{{this.id}}"><img
             class="imgs"
             src="https://image.tmdb.org/t/p/w500{{this.poster_path}}"
             alt="image show {{title}}"
@@ -23,6 +23,9 @@
         <span>{{vote_average}}</span>
         <h3>{{this.title}}</h3>
       </div>
+      {{! <form class="add-form" action="post">
+        <button class="add-btn">+</button>
+      </form> }}
     {{/each}}
   </div>
 

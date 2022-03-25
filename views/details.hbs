@@ -1,1 +1,16 @@
-<h1>Hi form details</h1>
+<section class="Details">
+
+  {{#each moviesGroup}}
+
+    <a href="/details/{{this.id}}"><img
+        class="imgs"
+        src="https://image.tmdb.org/t/p/w500{{this.poster_path}}"
+        alt="image show {{title}}"
+      /></a>
+    <span>{{vote_average}}</span>
+    <h3>{{this.title}}</h3>
+    <h3>Overview</h3>
+    <p>{{this.overview}}</p>
+  {{/each}}
+
+</section>

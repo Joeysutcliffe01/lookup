@@ -1,7 +1,5 @@
 <main class="profile-main">
 
-  <h1>Hey, {{user.username}}</h1>
-
   <section class="profile-personal-info">
 
     <img
@@ -9,21 +7,14 @@
       src="/images/profile-icon-png-899.png"
       alt="Profile Photo"
     />
-
-    <div class="about-me">
-      <h1>About me</h1>
-      <textarea
-        class="about-me-input"
-        type="text"
-        placeholder="Tell us a bit about yourself"
-      ></textarea>
-    </div>
+    <h1>{{user.username}}</h1>
 
   </section>
 
   <section class="to-watch">
-    <form method="post" action="/profile/collection/create">
-      <input name="movieName" value="" placeholder="Name of movie" />
+    <h1>Watch list</h1>
+    <form method="post" action="/addMovie">
+      <input name="movieName" placeholder="Name of movie" />
       <button type="submit">+</button>
     </form>
 
@@ -40,4 +31,29 @@
 
   </form>
 
+  <section class="sliders">
+
+    <div class="lg-container">
+      {{#each movies}}
+
+        <div class="shows-container-inner">
+          <a href="/details/{{this.id}}"><img
+              class="imgs"
+              src="https://image.tmdb.org/t/p/w500{{this.poster_path}}"
+              alt="image show {{title}}"
+            /></a>
+          <span>{{vote_average}}</span>
+          <h3>{{this.title}}</h3>
+        </div>
+      {{/each}}
+    </div>
+
+  </section>
 </main>
+
+<form method="post" action="/addMovie">
+
+  <input name="movieName" placeholder="Name of movie" />
+  <button type="submit">+</button>
+
+</form>

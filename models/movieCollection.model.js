@@ -7,7 +7,14 @@ const dataShape = new Schema({
     required: true,
   },
   moviesCol: {
-    type: [String],
+    type: [
+      {
+        id: Number,
+        original_title: String,
+        poster_path: String,
+        vote_average: Number,
+      },
+    ],
     required: true,
   },
 });

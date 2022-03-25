@@ -26,17 +26,19 @@ router.post("/signup", async (req, res) => {
       password: hash,
     });
     //----------------------------------------------------moviecollection
+    await newUser.save();
 
-    req.session.user = user;
+    req.session.user = newUser;
 
     await MovieCollection.create({
-      owner: user.username,
+      owner: newUser.username,
       moviesCol: [],
     });
 
-    await newUser.save();
     res.redirect("/login");
   } catch (err) {
+    console.log(err, "this is the error");
+
     res.render("signup", { error: "Some kind of error happened" });
   }
 });
@@ -57,7 +59,7 @@ router.post("/login", async (req, res) => {
     if (!passwordCorrect) {
       throw Error("Password incorrect");
     }
-    req.session.currentUser = user;
+    req.session.user = user;
     res.redirect("/profile");
   } catch (err) {
     console.log(err, "here error");

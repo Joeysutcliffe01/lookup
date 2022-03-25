@@ -3,9 +3,9 @@ const { requireLogin } = require("../middlewares/route-guard");
 
 router.use(requireLogin);
 const renderProfilePage = (req, res) => {
-  res.render("profile", { user: req.session.currentUser });
+  res.render("profile", { user: req.session.user });
 };
-router.get("/profile", renderProfilePage);
+// router.get("/profile", renderProfilePage);
 
 const renderDetailsPage = (req, res) => {
   console.log(req.myOwnCustomKey);

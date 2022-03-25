@@ -41,12 +41,16 @@ app.use(tvshows);
 const search = require("./routes/search");
 app.use(search);
 
+const profile = require("./routes/profile.route");
+app.use(profile);
+
 // app.use(require("./routes/shows"));
 
 app.use(require("./routes/auth.routes"));
 const loggedinRoutesRouter = require("./routes/loggedin.routes");
 app.use(loggedinRoutesRouter);
-app.use("/profile/collection", require("./routes/movieCollection.routes"));
+
+// app.use("/profile/collection", require("./routes/movieCollection.routes"));
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
