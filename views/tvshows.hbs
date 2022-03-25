@@ -5,7 +5,7 @@
     {{#each tvgroup.popularTv}}
 
       <div class="shows-container-inner">
-        <a href="/details/{{this.id}}"><img
+        <a href="/profile{{this.id}}"><img
             class="imgs"
             src="https://image.tmdb.org/t/p/w500{{this.poster_path}}"
             alt="image show {{title}}"
@@ -25,7 +25,7 @@
     {{#each tvgroup.topRatedTv}}
 
       <div class="shows-container-inner">
-        <a href="/details/{{this.id}}"><img
+        <a href="/profile{{this.id}}"><img
             class="imgs"
             src="https://image.tmdb.org/t/p/w500{{this.poster_path}}"
             alt="image show {{title}}"
@@ -45,7 +45,7 @@
     {{#each tvgroup.trendingTv}}
 
       <div class="shows-container-inner">
-        <a href="/details/{{this.id}}"><img
+        <a href="/profile{{this.id}}"><img
             class="imgs"
             src="https://image.tmdb.org/t/p/w500{{this.poster_path}}"
             alt="image show {{title}}"

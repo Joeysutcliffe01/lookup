@@ -325,6 +325,31 @@ a {
   display: flex;
   flex-direction: column;
 }
+
+.profile-container {
+  display: flex;
+  /* border: 2px solid red; */
+  width: 90vw;
+}
+
+.search-box {
+  font-size: 1.3em;
+  width: 20rem;
+
+  padding: 0.5rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: var(--gary-light);
+}
+.search-btn-submit {
+  background-color: var(--bg);
+  border-radius: 0.5rem;
+  /* padding: 2rem; */
+  font-size: 1.3rem;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+}
 .profile-personal-info {
   display: flex;
   justify-content: center;
