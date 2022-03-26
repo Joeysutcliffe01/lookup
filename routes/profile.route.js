@@ -13,7 +13,10 @@ router.get("/profile", requireLogin, async (req, res) => {
     owner: req.session.user.username,
   });
 
-  res.render("profile", { movies: collection.moviesCol });
+  res.render("profile", {
+    movies: collection.moviesCol,
+    user: req.session.user,
+  });
 });
 
 router.post("/addMovie", requireLogin, async (req, res) => {
@@ -37,16 +40,15 @@ router.post("/addMovie", requireLogin, async (req, res) => {
     const collection = await MovieCollection.findOne({
       owner: req.session.user.username,
     });
-    // `https://api.themoviedb.org/3/search/tv?api_key=${key}&language=en-US&page=1&query=${seriesName}&include_adult=false`;
 
-    // console.log("This is what we need", req.body);
     const movie = {
       id: search.data.results[0].id,
       original_title: search.data.results[0].original_title,
       poster_path: search.data.results[0].poster_path,
       vote_average: search.data.results[0].vote_average,
+      // overview: search.data.results[0].overview,
     };
-    console.log(search.data.results[0], "search--------------------------");
+
     const doesEx = collection.moviesCol.find(
       (currentMovie) => currentMovie.id === movie.id
     );
@@ -54,11 +56,10 @@ router.post("/addMovie", requireLogin, async (req, res) => {
       collection.moviesCol.push(movie);
       await collection.save();
     }
-    console.log(collection, "search2--------------------------");
-    res.redirect("profile");
+    res.redirect("profile", { user: req.session.user });
   } catch (err) {
     console.log(err, "this is an error");
-    res.redirect("profile");
+    res.redirect("profile", { user: req.session.user });
   }
 });
 

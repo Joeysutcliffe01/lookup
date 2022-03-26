@@ -9,7 +9,6 @@ router.get("/signup", (req, res) => {
 });
 
 router.post("/signup", async (req, res) => {
-  //console.log(req.body, "here body");
   try {
     const userExists = await User.exists({
       email: req.body.email,

@@ -23,7 +23,7 @@ router.get("/", async (req, res, next) => {
     tv: tvshows,
   };
 
-  res.render("index", { moviesAndTv });
+  res.render("index", { moviesAndTv, user: req.session.user });
 });
 
 module.exports = router;

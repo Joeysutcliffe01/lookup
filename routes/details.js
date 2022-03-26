@@ -10,7 +10,7 @@ router.get("/details/:media_type/:id", (req, res) => {
   let key;
 
   axios
-    .get(`https://api.themoviedb.org/3/${mediaType}/${id}?api_key=${myKey}`)
+    .get(`https://api.themoviedb.org/3/${mediaType}/${id}?api_key=${APIKEY}`)
     .then((response) => {
       ListModel.findOne({ userId: req.session.loggedInUser._id }).then(
         (listResponse) => {

@@ -1,20 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
-//const {requireLogin} = require("../middlewares/route-guard")
+const { requireLogin } = require("../middlewares/route-guard");
+let use;
 
 const API_KEY = "api_key=e0fad87e668f0db69d0dd676c05d8fc1";
 const BASE_URL = "https://api.themoviedb.org/3";
-const BASE_URL2 = "https://api.themoviedb.org/3";
-
-const GENRES_BASE = "https://api.themoviedb.org/3/genre/movie/list?";
-
 const API_URL = BASE_URL + "/discover/tv?sort_by=popularity.desc&" + API_KEY;
 
-const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
-
-//router.use(requireLogin)
-router.get("/tvshows", async (req, res, next) => {
+router.get("/tvshows", requireLogin, async (req, res, next) => {
   const urlPopularTv = await axios.get(
     BASE_URL + "/discover/tv?sort_by=popularity.desc&" + API_KEY
   );
@@ -35,7 +29,7 @@ router.get("/tvshows", async (req, res, next) => {
 
   console.log(tvgroup.trendingTv);
 
-  res.render("tvshows", { tvgroup });
+  res.render("tvshows", { tvgroup, user: req.session.user });
 });
 
 // router.get("/details/:id", async (req, res, next) => {

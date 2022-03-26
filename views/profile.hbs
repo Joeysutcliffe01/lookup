@@ -1,40 +1,8 @@
 <main class="profile-main">
-  <h1>{{user.username}}</h1>
-
-  {{! <section class="profile-personal-info">
-
-    <img
-      class="profile-img"
-      src="/images/profile-icon-png-899.png"
-      alt="Profile Photo"
-    />
-
-  </section>
-
-  <section class="to-watch">
-    <h1>Watch list</h1>
-    <form method="post" action="/addMovie">
-      <input name="movieName" placeholder="Name of movie" />
-      <button type="submit">+</button>
-    </form>
-
-  </section> }}
-
   <form method="post" action="/addMovie">
 
     <input class="search-box" name="movieName" placeholder="Name of movie" />
     <button class="search-btn-submit" type="submit">+</button>
-
-  </form>
-
-  <form action="/logout" method="post">
-
-    <button
-      class="logout-btn"
-      type="submit"
-      action="/logout"
-      method="post"
-    >Logout</button>
 
   </form>
 
@@ -43,23 +11,17 @@
 
     {{#each movies}}
 
-      <div class="shows-container-inner">
+      <div class="shows-container-inner profile">
         <a href="/details/{{this.id}}"><img
             class="imgs"
             src="https://image.tmdb.org/t/p/w500{{this.poster_path}}"
             alt="image show {{title}}"
           /></a>
         <span>{{vote_average}}</span>
-        <h3>{{this.title}}</h3>
+        <h3>{{this.original_title}}</h3>
+        {{!-- <p>{{overview}}</p> --}}
       </div>
     {{/each}}
   </div>
 
 </main>
-
-{{! <form method="post" action="/addMovie">
-
-  <input name="movieName" placeholder="Name of movie" />
-  <button type="submit">+</button>
-
-</form> }}

@@ -1,16 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
-//const {requireLogin} = require("../middlewares/route-guard")
+const { requireLogin } = require("../middlewares/route-guard");
 
 const API_KEY = "api_key=e0fad87e668f0db69d0dd676c05d8fc1";
 const BASE_URL = "https://api.themoviedb.org/3";
 const API_URL = BASE_URL + "/discover/movie?sort_by=popularity.desc&" + API_KEY;
 
-const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
-
-//router.use(requireLogin)
-router.get("/movies", async (req, res, next) => {
+router.get("/movies", requireLogin, async (req, res, next) => {
   const urlPopularMovies = await axios.get(
     BASE_URL + "/discover/movie?sort_by=popularity.desc&" + API_KEY
   );
@@ -35,7 +32,7 @@ router.get("/movies", async (req, res, next) => {
     kids: kidsMovies,
   };
 
-  res.render("movies", { moviesGroup });
+  res.render("movies", { moviesGroup, user: req.session.user });
 });
 
 router.get("/details/:id", async (req, res, next) => {

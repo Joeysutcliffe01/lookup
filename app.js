@@ -14,7 +14,6 @@ const express = require("express");
 const hbs = require("hbs");
 const path = require("path");
 const partialsDirectory = path.join(__dirname, "views", "partials");
-console.log(partialsDirectory);
 hbs.registerPartials(partialsDirectory);
 
 const app = express();
@@ -24,9 +23,9 @@ require("./config")(app);
 
 // default value for title local
 const capitalized = require("./utils/capitalized");
-const projectName = "watchup";
+const projectName = "LookUp";
 
-app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
+app.locals.appTitle = projectName;
 
 //---------------------------------------Routes
 const index = require("./routes/index.routes");
@@ -56,9 +55,3 @@ app.use(loggedinRoutesRouter);
 require("./error-handling")(app);
 
 module.exports = app;
-
-// git branch joey
-// git checkout koye
-//
-//git branch -a
-// git pull origin joye

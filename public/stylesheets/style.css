@@ -171,7 +171,6 @@ a {
   flex-wrap: wrap;
   padding: 2rem 0;
   width: 90%;
-  /* border: 2px solid red; */
 }
 
 .navbar {
@@ -192,8 +191,8 @@ a {
 
 .menu-items {
   display: flex;
+  align-items: center;
   order: 2;
-  /* border: 2px solid red; */
 }
 
 .logo {
@@ -226,6 +225,17 @@ a {
 
 .menu-items a:hover {
   color: #0dddba;
+}
+
+#logout-btn {
+  margin-left: 1rem;
+  margin-top: 0.9rem;
+  border: none;
+  background-color: transparent;
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--text-light);
+  cursor: pointer;
 }
 
 .logo {
@@ -292,12 +302,10 @@ a {
   width: 10rem;
   padding: 1rem;
   position: relative;
-  /* border: 2px solid rgb(247, 0, 255); */
 }
 .shows-container-inner img {
   width: 10rem;
   border-radius: 1rem;
-  /* border: 2px solid rgb(0, 68, 255); */
 }
 
 .shows-container-inner span {
@@ -326,9 +334,14 @@ a {
   flex-direction: column;
 }
 
+.profile {
+  /* width: auto;
+  border: 2px solid red; */
+}
+
 .profile-container {
   display: flex;
-  /* border: 2px solid red; */
+  flex-wrap: wrap;
   width: 90vw;
 }
 
@@ -394,12 +407,6 @@ a {
   background-color: var(--primary);
 }
 
-.overview {
-  background: var(--bg);
-  padding: 2rem;
-  color: white;
-}
-
 .add-btn {
   background-color: var(--bg);
   color: var(--text-light);
@@ -413,6 +420,30 @@ a {
   position: absolute;
 
   /* padding: 1rem; */
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: var(--bg);
+  padding: 0.5rem 1rem;
+  color: var(--text-light);
+}
+
+.footer-p {
+  width: 50%;
+  text-align: center;
+}
+.footer-p a {
+  color: var(--primary);
+}
+
+.username {
+  border-radius: 1rem;
+  background-color: var(--primary);
+  padding: 0.5rem;
 }
 
 @media (max-width: 800px) {
@@ -493,6 +524,10 @@ a {
     border-radius: 1rem;
     box-shadow: 5px 0px 10px 0px #aaa;
     background-color: var(--bg);
+  }
+
+  #logout-btn {
+    margin: 0rem 0rem 3rem 2rem;
   }
 
   .navbar .menu-items li {
