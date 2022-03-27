@@ -37,6 +37,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* flex-wrap: wrap; */
   background-image: linear-gradient(120deg, #03d0eb, #2771ad);
 
   border-radius: 1rem;
@@ -44,8 +45,7 @@ a {
   overflow: hidden;
   width: 50%;
   padding: 2rem;
-  margin-top: 5rem;
-  /* padding: 0rem; */
+  margin: 3rem 0;
 }
 
 .auth-form-section button {
@@ -69,6 +69,7 @@ a {
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
   width: 50%;
   border-radius: 50%;
 }
@@ -94,6 +95,7 @@ a {
   padding: 0.5rem;
   border-radius: 1rem;
   margin: 1rem 0;
+  width: 100%;
   border: none;
   background-color: var(--gary-light);
 }
@@ -559,6 +561,15 @@ footer {
   .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
     transform: rotate(-45deg);
   }
+
+  .auth-form-section {
+    flex-wrap: wrap;
+    width: 70%;
+  }
+
+  .auth-form {
+    width: 80%;
+  }
 }
 
 @media (max-width: 500px) {
@@ -579,5 +590,9 @@ footer {
   .hero-index p {
     font-size: 2em;
     margin-top: -1rem;
+  }
+
+  .auth-form {
+    padding: 1rem;
   }
 }
