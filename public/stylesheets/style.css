@@ -22,7 +22,6 @@ body {
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  overflow: hidden;
 }
 
 a {
@@ -433,15 +432,11 @@ footer {
   background-color: var(--bg);
   padding: 0.5rem 1rem;
   color: var(--text-light);
-  /* position: absolute; */
-  /* bottom: 0; */
-  /* width: 100%; */
 }
 
 .footer-p {
   width: 50%;
   text-align: center;
-  margin-right: 2rem;
 }
 .footer-p a {
   color: var(--primary);
